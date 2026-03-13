@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Startup Day Goiânia 2026 – Programação Oficial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+  /* ═══════════════════════════════════════
+     TOKENS
+  ═══════════════════════════════════════ */
+  :root {
+    --offwhite:  #EFF3EE;
+    --ceu:       #65B7FB;
+    --azul:      #2A4FDA;
+    --atlantico: #0B2574;
+    --preto:     #000000;
+
+    /* identidade do evento */
+    --teal:      #13C5C5;
+    --teal-dark: #0EA8A8;
+    --teal-deep: #0C8E8E;
+    --brand-blue:#3660E8;
+    --brand-blue2:#2547CC;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #c8ccca;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 32px 20px;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ═══════════════════════════════════════
+     POSTER
+  ═══════════════════════════════════════ */
+  .poster {
+    width: 100%;
+    max-width: 794px;
+    background: var(--offwhite);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 24px 72px rgba(0,0,0,0.25);
+  }
+
+  /* ═══════════════════════════════════════
+     ██  HEADER — limpo, paleta teal  ██
+  ═══════════════════════════════════════ */
+  .header {
+    background: var(--teal-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* gradiente de fundo */
+  .header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0EBEBE 0%, #15CECE 50%, #0C9E9E 100%);
+    z-index: 0;
+  }
+
+  /* círculos decorativos sutis */
+  .header-deco-a {
+    position: absolute;
+    right: -55px; top: -55px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    border: 38px solid rgba(255,255,255,0.08);
+    z-index: 1; pointer-events: none;
+  }
+  .header-deco-b {
+    position: absolute;
+    right: 75px; bottom: -75px;
+    width: 190px; height: 190px;
+    border-radius: 50%;
+    border: 28px solid rgba(255,255,255,0.06);
+    z-index: 1; pointer-events: none;
+  }
+  .header-deco-c {
+    position: absolute;
+    left: -30px; bottom: 20px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    border: 20px solid rgba(255,255,255,0.05);
+    z-index: 1; pointer-events: none;
+  }
+
+  .header-top-bar {
+    height: 5px;
+    background: rgba(255,255,255,0.3);
+    position: relative; z-index: 3;
+  }
+
+  .header-inner {
+    padding: 38px 50px 34px;
+    position: relative; z-index: 2;
+  }
+
+  /* badge oficial */
+  .official-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 5px 14px;
+    margin-bottom: 22px;
+  }
+  .official-badge::before { content: '★'; font-size: 9px; color: rgba(255,255,255,0.9); }
+  .official-badge span {
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* título principal */
+  .event-title {
+    font-size: 38px; font-weight: 900;
+    color: #fff;
+    line-height: 1.05; letter-spacing: -1px;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  }
+  .event-title .highlight { color: rgba(255,255,255,0.75); }
+
+  .event-subtitle {
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 26px;
+  }
+
+  /* box do tema */
+  .theme-box {
+    background: rgba(0,0,0,0.12);
+    border-left: 3px solid rgba(255,255,255,0.6);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 18px;
+    margin-bottom: 28px;
+    max-width: 560px;
+  }
+  .theme-label {
+    font-size: 8.5px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 4px;
+  }
+  .theme-text {
+    font-size: 12.5px; font-weight: 500;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.48;
+  }
+
+  /* meta (data / hora / local) */
+  .header-meta {
+    display: flex; gap: 26px;
+    flex-wrap: wrap; row-gap: 12px;
+  }
+  .meta-item { display: flex; align-items: center; gap: 8px; }
+  .meta-icon {
+    width: 28px; height: 28px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; flex-shrink: 0;
+  }
+  .meta-label {
+    font-size: 8.5px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    line-height: 1; margin-bottom: 2px;
+  }
+  .meta-value {
+    font-size: 12.5px; font-weight: 700;
+    color: #fff; line-height: 1.2;
+  }
+
+  /* ═══════════════════════════════════════
+     BODY
+  ═══════════════════════════════════════ */
+  .body { padding: 32px 48px 48px; }
+
+  /* ═══════════════════════════════════════
+     BLOCK
+  ═══════════════════════════════════════ */
+  .block { margin-bottom: 28px; }
+
+  .block-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px; flex-wrap: wrap; row-gap: 6px;
+  }
+  .block-number {
+    width: 30px; height: 30px;
+    background: var(--teal-dark);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0;
+  }
+  .block-title {
+    font-size: 10.5px; font-weight: 800;
+    letter-spacing: 2.2px; text-transform: uppercase;
+    color: var(--teal-deep);
+  }
+  .block-title-line {
+    height: 1.5px;
+    background: linear-gradient(to right, var(--teal), transparent);
+    flex: 1; min-width: 20px;
+  }
+  .block-subtitle {
+    font-size: 9.5px; font-weight: 600;
+    color: var(--brand-blue);
+    letter-spacing: 0.8px; text-transform: uppercase;
+    padding: 3px 10px;
+    background: rgba(42,79,218,0.08);
+    border-radius: 20px; white-space: nowrap;
+  }
+
+  /* ═══════════════════════════════════════
+     SESSION TIMELINE
+  ═══════════════════════════════════════ */
+  .session {
+    display: flex; gap: 14px;
+    margin-bottom: 8px; position: relative;
+  }
+  .session::before {
+    content: ''; position: absolute;
+    left: 56px; top: 30px; bottom: -8px;
+    width: 1.5px;
+    background: linear-gradient(to bottom, var(--teal), transparent);
+    z-index: 0;
+  }
+  .session:last-child::before { display: none; }
+
+  .session-time {
+    width: 66px; flex-shrink: 0;
+    text-align: right; padding-top: 13px;
+  }
+  .time-text { font-size: 11.5px; font-weight: 800; color: var(--teal-deep); line-height: 1.1; display: block; }
+  .time-end  { font-size: 9.5px;  font-weight: 500; color: #aaa; margin-top: 1px; display: block; }
+
+  .session-dot {
+    width: 26px; flex-shrink: 0;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 15px; position: relative; z-index: 1;
+  }
+  .dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--teal);
+    border: 2px solid var(--offwhite);
+    box-shadow: 0 0 0 2px var(--teal); flex-shrink: 0;
+  }
+  .dot.special { background: var(--brand-blue2); box-shadow: 0 0 0 2px var(--brand-blue2); }
+  .dot.soft    { background: #5DD8D8;            box-shadow: 0 0 0 2px #5DD8D8; }
+
+  /* ═══════════════════════════════════════
+     SESSION CARD
+  ═══════════════════════════════════════ */
+  .session-card {
+    flex: 1; min-width: 0;
+    background: #fff; border-radius: 12px;
+    padding: 13px 16px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .session-card.magna        { border-left: 4px solid var(--brand-blue2); background: linear-gradient(135deg,#fff,rgba(42,71,204,0.04)); }
+  .session-card.workshop     { border-left: 4px solid var(--teal-dark); }
+  .session-card.break        { border-left: 4px solid var(--teal); background: linear-gradient(135deg,rgba(19,197,197,0.06),#fff); }
+  .session-card.institutional{ border-left: 4px solid var(--brand-blue2); }
+  .session-card.competition  { border-left: 4px solid #e85d04; }
+  .session-card.panel        { border-left: 4px solid #7c3aed; }
+  .session-card.mentoring    { border-left: 4px solid #059669; }
+
+  .card-top {
+    display: flex; align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+    flex-wrap: wrap; row-gap: 4px;
+  }
+  .card-location {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: rgba(19,197,197,0.12);
+    color: var(--teal-deep);
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.7px; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 20px; white-space: nowrap;
+  }
+  .card-location::before { content: '📍'; font-size: 8px; }
+
+  .card-format {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 8.5px; font-weight: 700;
+    letter-spacing: 0.4px; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 20px; white-space: nowrap;
+  }
+  .format-magna         { background: rgba(42,71,204,0.1);   color: var(--brand-blue2); }
+  .format-workshop      { background: rgba(14,168,168,0.12); color: var(--teal-deep); }
+  .format-break         { background: rgba(19,197,197,0.15); color: var(--teal-deep); }
+  .format-institutional { background: rgba(42,71,204,0.1);   color: var(--brand-blue2); }
+  .format-competition   { background: rgba(232,93,4,0.1);    color: #c44d00; }
+  .format-panel         { background: rgba(124,58,237,0.1);  color: #5b21b6; }
+  .format-mentoring     { background: rgba(5,150,105,0.1);   color: #047857; }
+  .format-networking    { background: rgba(19,197,197,0.12); color: var(--teal-deep); }
+
+  .card-title    { font-size: 13.5px; font-weight: 700; color: var(--preto); line-height: 1.4; }
+  .card-subtitle { font-size: 11.5px; font-weight: 400; color: #666; margin-top: 3px; line-height: 1.4; }
+
+  /* ═══════════════════════════════════════
+     SIMULTANEOUS BLOCK
+  ═══════════════════════════════════════ */
+  .simultaneous-wrapper { margin-bottom: 8px; }
+
+  .simul-time-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 10px; flex-wrap: wrap; row-gap: 6px;
+  }
+  .simul-time-badge {
+    background: var(--teal-dark); color: #fff;
+    font-size: 11.5px; font-weight: 800;
+    padding: 5px 14px; border-radius: 20px; white-space: nowrap;
+  }
+  .simul-label {
+    font-size: 9.5px; font-weight: 700;
+    color: var(--teal-deep); letter-spacing: 1.2px;
+    text-transform: uppercase; opacity: 0.65;
+  }
+  .simul-line {
+    height: 1px;
+    background: linear-gradient(to right, var(--teal), transparent);
+    flex: 1; min-width: 20px; opacity: 0.28;
+  }
+
+  .simul-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  .simul-card {
+    background: #fff; border-radius: 10px;
+    padding: 12px 14px; min-width: 0;
+    border: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .simul-card.competition { border-top: 3px solid #e85d04; }
+  .simul-card.workshop    { border-top: 3px solid var(--teal-dark); }
+  .simul-card.mentoring   { border-top: 3px solid #059669; }
+  .simul-card.panel       { border-top: 3px solid #7c3aed; }
+
+  /* ── card de mentoria que ocupa largura total ── */
+  .simul-card.mentoring.full { grid-column: 1 / -1; }
+
+  .simul-loc {
+    display: inline-flex; align-items: center; gap: 3px;
+    background: rgba(19,197,197,0.1);
+    color: var(--teal-deep);
+    font-size: 8.5px; font-weight: 700;
+    letter-spacing: 0.4px; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 12px; margin-bottom: 6px;
+  }
+  .simul-loc::before { content: '📍'; font-size: 7px; }
+
+  /* dois chips de local lado a lado */
+  .simul-locs {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-bottom: 7px;
+  }
+
+  .simul-title { font-size: 12px; font-weight: 700; color: var(--preto); line-height: 1.35; margin-bottom: 5px; }
+  .simul-type  { display: inline-flex; align-items: center; font-size: 8.5px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; padding: 2px 8px; border-radius: 10px; }
+
+  /* ═══════════════════════════════════════
+     DIVIDER
+  ═══════════════════════════════════════ */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(19,197,197,0.3), transparent);
+    margin: 4px 0 22px;
+  }
+
+  /* ═══════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════ */
+  .footer {
+    background: linear-gradient(135deg, #0C9A9A 0%, #0DBABA 100%);
+    padding: 20px 48px;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    border-top: 3px solid rgba(255,255,255,0.18);
+  }
+  .footer-title { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+  .footer-sub   { font-size: 9.5px; color: rgba(255,255,255,0.52); font-weight: 400; }
+  .footer-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .footer-tag {
+    background: rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.75);
+    font-size: 8.5px; font-weight: 700;
+    letter-spacing: 0.8px; text-transform: uppercase;
+    padding: 4px 11px; border-radius: 20px;
+  }
+
+  /* ═══════════════════════════════════════
+     PRINT
+  ═══════════════════════════════════════ */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .poster { box-shadow: none; max-width: 100%; border-radius: 0; }
+  }
+  @page { size: A3 portrait; margin: 0; }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE ≤ 640px
+  ═══════════════════════════════════════ */
+  @media (max-width: 640px) {
+    body { padding: 0; background: var(--offwhite); }
+    .poster { border-radius: 0; box-shadow: none; min-height: 100vh; }
+
+    .header-inner { padding: 26px 20px 22px; }
+    .event-title  { font-size: 28px; letter-spacing: -0.5px; }
+    .event-subtitle { font-size: 11px; letter-spacing: 2px; margin-bottom: 18px; }
+    .theme-box    { max-width: 100%; padding: 10px 14px; margin-bottom: 18px; }
+    .theme-text   { font-size: 11.5px; }
+    .header-meta  { gap: 16px; row-gap: 10px; }
+    .meta-value   { font-size: 11.5px; }
+
+    .body         { padding: 24px 16px 36px; }
+    .block-title-line { display: none; }
+    .block-title  { font-size: 10px; letter-spacing: 1.8px; }
+    .block-subtitle { font-size: 9px; }
+
+    .session      { gap: 10px; }
+    .session::before { left: 50px; }
+    .session-time { width: 52px; padding-top: 12px; }
+    .time-text    { font-size: 10.5px; }
+    .time-end     { font-size: 8.5px; }
+    .session-dot  { width: 22px; padding-top: 14px; }
+    .dot          { width: 10px; height: 10px; }
+    .session-card { padding: 11px 13px; border-radius: 10px; }
+    .card-title   { font-size: 12.5px; }
+    .card-subtitle{ font-size: 11px; }
+    .card-location{ font-size: 8px; padding: 2px 7px; }
+    .card-format  { font-size: 7.5px; padding: 2px 7px; }
+
+    .simul-grid   { grid-template-columns: 1fr; }
+    .simul-card.mentoring.full { grid-column: unset; }
+    .simul-time-badge { font-size: 11px; padding: 4px 12px; }
+    .simul-label  { font-size: 9px; }
+    .simul-line   { display: none; }
+
+    .footer       { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .footer-tag   { font-size: 8px; padding: 3px 9px; }
+  }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE ≤ 390px
+  ═══════════════════════════════════════ */
+  @media (max-width: 390px) {
+    .event-title { font-size: 24px; }
+    .session { flex-direction: column; gap: 4px; }
+    .session::before { display: none; }
+    .session-time {
+      width: 100%; text-align: left; padding-top: 0;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .time-end::before { content: '→ '; }
+    .session-dot { display: none; }
+  }
+
+  html { scroll-behavior: smooth; }
+  * { -webkit-tap-highlight-color: transparent; }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- ══════════ HEADER ══════════ -->
+  <div class="header">
+    <div class="header-top-bar"></div>
+    <div class="header-deco-a"></div>
+    <div class="header-deco-b"></div>
+    <div class="header-deco-c"></div>
+
+    <div class="header-inner">
+
+      <div class="official-badge">
+        <span>Programação Oficial do Evento</span>
+      </div>
+
+      <div class="event-title">
+        Startup Day<br><span class="highlight">Goiânia</span> 2026
+      </div>
+      <div class="event-subtitle">Programação Oficial</div>
+
+      <div class="theme-box">
+        <div class="theme-label">Tema Central</div>
+        <div class="theme-text">Startups Autônomas – IA Agêntica, Escala e o Futuro dos Negócios</div>
+      </div>
+
+      <div class="header-meta">
+        <div class="meta-item">
+          <div class="meta-icon">📅</div>
+          <div class="meta-content">
+            <div class="meta-label">Data</div>
+            <div class="meta-value">21 de Março de 2026</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">⏰</div>
+          <div class="meta-content">
+            <div class="meta-label">Horário</div>
+            <div class="meta-value">08h00 – 13h00</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">📍</div>
+          <div class="meta-content">
+            <div class="meta-label">Local</div>
+            <div class="meta-value">Sebrae Goiás</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /header -->
+
+  <!-- ══════════ BODY ══════════ -->
+  <div class="body">
+
+    <!-- ─── BLOCO 1 ─────────────────────── -->
+    <div class="block">
+      <div class="block-header">
+        <div class="block-number">01</div>
+        <div class="block-title">Programação Geral</div>
+        <div class="block-title-line"></div>
+        <div class="block-subtitle">08h00 – 10h00</div>
+      </div>
+
+      <div class="session">
+        <div class="session-time"><span class="time-text">08h00</span><span class="time-end">08h30</span></div>
+        <div class="session-dot"><div class="dot soft"></div></div>
+        <div class="session-card break">
+          <div class="card-top">
+            <div class="card-location">Área de Boas-Vindas</div>
+            <div class="card-format format-networking">☕ Networking</div>
+          </div>
+          <div class="card-title">Recepção dos Participantes</div>
+          <div class="card-subtitle">Credenciamento + Café de Boas-Vindas</div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time"><span class="time-text">08h30</span><span class="time-end">08h45</span></div>
+        <div class="session-dot"><div class="dot special"></div></div>
+        <div class="session-card institutional">
+          <div class="card-top">
+            <div class="card-location">Auditório</div>
+            <div class="card-format format-institutional">🏛 Institucional</div>
+          </div>
+          <div class="card-title">Abertura Institucional</div>
+          <div class="card-subtitle">Apresentação da dinâmica do dia + Edital de Comunidades</div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time"><span class="time-text">08h45</span><span class="time-end">09h25</span></div>
+        <div class="session-dot"><div class="dot special"></div></div>
+        <div class="session-card magna">
+          <div class="card-top">
+            <div class="card-location">Auditório</div>
+            <div class="card-format format-magna">⭐ Palestra Magna</div>
+          </div>
+          <div class="card-title">IA Agêntica: A próxima geração de startups não terá funcionários, terá agentes</div>
+          <div class="card-subtitle">Palestra Magna 1</div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time"><span class="time-text">09h25</span><span class="time-end">10h00</span></div>
+        <div class="session-dot"><div class="dot"></div></div>
+        <div class="session-card workshop">
+          <div class="card-top">
+            <div class="card-location">Auditório</div>
+            <div class="card-format format-workshop">🛠 Workshop</div>
+          </div>
+          <div class="card-title">Construindo seu primeiro agente de IA</div>
+          <div class="card-subtitle">Sessão prática — mão na massa</div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time"><span class="time-text">10h00</span><span class="time-end">10h15</span></div>
+        <div class="session-dot"><div class="dot soft"></div></div>
+        <div class="session-card break">
+          <div class="card-top">
+            <div class="card-location">Área Comum</div>
+            <div class="card-format format-break">☕ Pausa / Conexão</div>
+          </div>
+          <div class="card-title">Coffee Break + Networking</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ─── BLOCO 2 — 1ª RODADA ──────────── -->
+    <div class="block">
+      <div class="block-header">
+        <div class="block-number">02</div>
+        <div class="block-title">1ª Rodada — Trilhas Simultâneas</div>
+        <div class="block-title-line"></div>
+        <div class="block-subtitle">10h15 – 11h00</div>
+      </div>
+
+      <div class="simultaneous-wrapper">
+        <div class="simul-time-header">
+          <div class="simul-time-badge">10h15 – 11h00</div>
+          <div class="simul-label">3 Trilhas em paralelo</div>
+          <div class="simul-line"></div>
+        </div>
+
+        <div class="simul-grid">
+
+          <!-- Batalha de Pitches -->
+          <div class="simul-card competition">
+            <div class="simul-loc">Sala 1</div>
+            <div class="simul-title">Batalha de Pitches</div>
+            <div class="simul-type format-competition">🏆 Competição</div>
+          </div>
+
+          <!-- Workshop -->
+          <div class="simul-card workshop">
+            <div class="simul-loc">Sala 2</div>
+            <div class="simul-title">Construindo produtos AI First</div>
+            <div class="simul-type format-workshop">🛠 Workshop</div>
+          </div>
+
+          <!-- Mentoria UNIFICADA — ocupa linha inteira -->
+          <div class="simul-card mentoring full">
+            <div class="simul-locs">
+              <div class="simul-loc">Business Lounge</div>
+              <div class="simul-loc">Caminhão de Atendimento</div>
+            </div>
+            <div class="simul-title">Mentorias Temáticas e Orientações Especializadas</div>
+            <div class="simul-type format-mentoring">💬 Mentoria · rodadas de 20 min</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ─── BLOCO 3 — 2ª RODADA ──────────── -->
+    <div class="block">
+      <div class="block-header">
+        <div class="block-number">03</div>
+        <div class="block-title">2ª Rodada — Trilhas Simultâneas</div>
+        <div class="block-title-line"></div>
+        <div class="block-subtitle">11h10 – 12h00</div>
+      </div>
+
+      <div class="simultaneous-wrapper">
+        <div class="simul-time-header">
+          <div class="simul-time-badge">11h10 – 12h00</div>
+          <div class="simul-label">4 Trilhas em paralelo</div>
+          <div class="simul-line"></div>
+        </div>
+
+        <div class="simul-grid">
+
+          <!-- Batalha de Pitches -->
+          <div class="simul-card competition">
+            <div class="simul-loc">Sala 1</div>
+            <div class="simul-title">Batalha de Pitches</div>
+            <div class="simul-type format-competition">🏆 Competição</div>
+          </div>
+
+          <!-- Carreira na Tecnologia -->
+          <div class="simul-card panel">
+            <div class="simul-loc">Sala 2</div>
+            <div class="simul-title">Carreira na Tecnologia</div>
+            <div class="simul-type format-panel">🎙 Painel</div>
+          </div>
+
+          <!-- Painel Startups -->
+          <div class="simul-card panel">
+            <div class="simul-loc">Sala 3</div>
+            <div class="simul-title">Startups goianas que usam IA no core</div>
+            <div class="simul-type format-panel">🎙 Painel</div>
+          </div>
+
+          <!-- Mentoria UNIFICADA — ocupa linha inteira -->
+          <div class="simul-card mentoring full">
+            <div class="simul-locs">
+              <div class="simul-loc">Business Lounge</div>
+              <div class="simul-loc">Caminhão de Atendimento</div>
+            </div>
+            <div class="simul-title">Mentorias Temáticas e Orientações Especializadas</div>
+            <div class="simul-type format-mentoring">💬 Mentoria · rodadas de 20 min</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ─── BLOCO 4 — ENCERRAMENTO ──────── -->
+    <div class="block">
+      <div class="block-header">
+        <div class="block-number">04</div>
+        <div class="block-title">Encerramento</div>
+        <div class="block-title-line"></div>
+        <div class="block-subtitle">12h10 – 13h00</div>
+      </div>
+
+      <div class="session">
+        <div class="session-time"><span class="time-text">12h10</span><span class="time-end">12h30</span></div>
+        <div class="session-dot"><div class="dot"></div></div>
+        <div class="session-card workshop">
+          <div class="card-top">
+            <div class="card-location">Auditório</div>
+            <div class="card-format format-workshop">📊 Palestra Técnica</div>
+          </div>
+          <div class="card-title">Boas práticas de follow-up pós pitch</div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time"><span class="time-text">12h30</span><span class="time-end">12h45</span></div>
+        <div class="session-dot"><div class="dot special"></div></div>
+        <div class="session-card competition" style="border-left:4px solid #e85d04;">
+          <div class="card-top">
+            <div class="card-location">Auditório</div>
+            <div class="card-format format-competition">🏆 Competição</div>
+          </div>
+          <div class="card-title">Batalha Final de Pitches</div>
+          <div class="card-subtitle">Os melhores se enfrentam no palco principal</div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-time"><span class="time-text">12h45</span><span class="time-end">13h00</span></div>
+        <div class="session-dot"><div class="dot special"></div></div>
+        <div class="session-card institutional">
+          <div class="card-top">
+            <div class="card-location">Auditório</div>
+            <div class="card-format format-institutional">🏛 Institucional</div>
+          </div>
+          <div class="card-title">Pitch Reverso · Premiação · Encerramento</div>
+          <div class="card-subtitle">Resultados + Próximos Passos do ecossistema</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <div class="footer">
+    <div>
+      <div class="footer-title">Startup Day Goiânia 2026</div>
+      <div class="footer-sub">Sebrae Goiás · 21 de março de 2026 · 08h00 – 13h00</div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-tag">#StartupDay</div>
+      <div class="footer-tag">#IAAgêntica</div>
+      <div class="footer-tag">#GoiâniaInnov</div>
+    </div>
+  </div>
+
+</div><!-- /poster -->
+</body>
+</html>
